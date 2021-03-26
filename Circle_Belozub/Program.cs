@@ -21,7 +21,7 @@ namespace Circle_Belozub
                 Circle circle = Circle.CreateCircle(point, radius);
                 Console.WriteLine(circle);
 
-                Console.WriteLine($"Длина окружности = {circle.CircleLength}, Площадь круга = {circle.CircleArea}");
+                Console.WriteLine($"Длина окружности = {circle.CircleLength}, площадь круга = {circle.CircleArea}");
                 Console.WriteLine();
 
 
@@ -32,6 +32,7 @@ namespace Circle_Belozub
                 Console.WriteLine("Первая точка с измененным положением: {0}", point);
                 Console.WriteLine("Новая точка со сдвигом от центра: {0}", new_point);
                 Console.WriteLine(circle.Center);
+
             }
         }
     }
