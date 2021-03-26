@@ -8,24 +8,68 @@ namespace Circle_Belozub
 {
     class Circle
     {
-        public readonly Point Center = new Point();
+        private Point center = new Point(0, 0);
 
-        public double Radius { get; private set; }
+        private double radius = 1;
 
-        public double CircleLength => 2 * Math.PI * Radius;
 
-        public double CircleArea => Math.PI * Radius * Radius;
-
-        public Circle()
+        private Circle(Point center, double radius)
         {
-
+            this.center = new Point(center);
+            this.radius = radius;
         }
 
-        public Circle(double x, double y, double radius)
+        private double Radius { get => radius; set => radius = value; }
+
+        public Point Center { get => new Point(center); set => center = new Point(value); }
+
+        public override string ToString()
         {
-            Center = new Point(x, y);
-            Radius = radius;
+            return "Круг с радиусом = " + radius + ", центр в точке " + center;
+        }
+
+        //Calculations
+
+        public double CircleLength
+        {
+            get
+            {
+                return Math.PI * 2 * radius;
+            }
+        }
+
+        public double CircleArea
+        {
+            get
+            {
+                return Math.PI * radius * radius;
+            }
+        }
+
+        //Validation
+
+        public static Circle CreateCircle(Point p, double r)
+        {
+            try
+            {
+                if (r > 0)
+                {
+                    return new Circle(p, r);
+                }
+                else
+                {
+                    throw new ArgumentException("Вы не можете ввести отрицательный радиус: " + r + "\n");
+                }
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine(e.Message);
+                return new Circle(p, -r);
+            }
         }
 
     }
+
+
+
 }

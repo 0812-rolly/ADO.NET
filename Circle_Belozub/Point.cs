@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Circle_Belozub
 {
-    class Point //Center coordinates
+    class Point
     {
-        public double x;
-        public double y;
+        private double x;
+        private double y;
 
         public Point()
         {
@@ -21,5 +21,18 @@ namespace Circle_Belozub
             this.y = y;
         }
 
+        public override string ToString()
+        {
+            return "Место расположения: (" + x + ", " + y + ")";
+        }
+
+        public double X { get => x; set => x = value; }
+        public double Y { get => y; set => y = value; }
+
+        public Point(Point point)
+        {
+            this.x = point.X;
+            this.y = point.Y;
+        }
     }
 }
